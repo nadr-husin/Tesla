@@ -1,0 +1,152 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgb(0, 0, 0);
+	--c2: rgba(0, 0, 0, 0.1);
+}
+
+body{
+    background-color: #F2E2B1;
+    color: white;
+}
+.container{
+    height: 100vh;
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.card{
+    background-color: #BDB395;
+    width: 400px;
+    text-align: center;
+    box-shadow: 15px 10px 20px rgba(0, 0, 0, 0.6);
+    padding: 20px 0px;
+    font-family: Verdana, sans-serif;
+    border: 0.35rem solid;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+img{
+    width: 100px;
+}
+.photo h2{
+    font-size: 30px;
+    color: white;
+    padding-top: 20px;
+}
+.card p{
+    color: rgba(25, 25, 25, 0.7);
+    padding: 5px 0px;
+    font-size: 15px;
+
+}
+.photo p{
+    color: rgba(193, 238, 120, 0.952);
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 10px 0px;
+}
+button{
+    width: 90%;
+    height: 50px;
+    margin: 5px 0px;
+    background-color: #F2E2B1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
+    color: black;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+button:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+    color: white;
+}
+@media only screen and (max-width: 600px)
+{
+    .card{
+        width: 400px;
+
+    }
+    .photo h2{
+        font-size: 20px;
+        padding-top: 10px;
+    }
+    .card p{
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    button{
+        width: 90%;
+        height: 45px;
+        margin: 5px 0px;
+        font-size: 15px;
+    }
+
+}
+
+
+
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
